@@ -507,7 +507,7 @@ export class EthereumNetwork {
       if (!alchemyApiKey || alchemyApiKey.length < 6) {
         throw new Error('Need Alchemy API key')
       }
-      addOnUrl = `/v2/-${alchemyApiKey}`
+      addOnUrl = `/v2/${alchemyApiKey}`
     }
     url += addOnUrl
 
@@ -838,9 +838,6 @@ export class EthereumNetwork {
             params[0],
             chainId,
             baseUrl
-          )
-          this.ethEngine.log(
-            `estimateGas waterwall ${JSON.stringify(result)} ${baseUrl}`
           )
           return { server: parse(baseUrl).hostname, result }
         })
